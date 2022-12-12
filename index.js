@@ -8,6 +8,7 @@ const signUpRouter = require("./routes/userSignup.js");
 const loginRouter = require("./routes/userSignup.js");
 const {authenticate} = require("./middleWare/authentication");
 const todoReg=require("./routes/userTodo")
+const del=require("./routes/userTodo")
 
 const app = express();
 const PORT = 8089;
@@ -22,6 +23,7 @@ app.use("/", signUpRouter);
 app.use("/", loginRouter);
 // app.use(authenticate)
 app.use("/",todoReg)
+app.use("/delete/:noteID",del)
 connectiondb();
 app.listen(PORT, () => {
   console.log("Server ON PORT http://localhost:8089");
